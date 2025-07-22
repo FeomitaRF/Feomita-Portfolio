@@ -1,0 +1,859 @@
+/* Variabel CSS untuk tema */
+:root {
+    --primary-color: #3a86ff;
+    --secondary-color: #8338ec;
+    --dark-color: #212529;
+    --light-color: #f8f9fa;
+    --text-dark: #212529;
+    --text-light: #f8f9fa;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Tema gelap */
+[data-theme="dark"] {
+    --primary-color: #8338ec;
+    --secondary-color: #3a86ff;
+    --dark-color: #1a1a2e;
+    --light-color: #16213e;
+    --text-dark: #f8f9fa;
+    --text-light: #e2e2e2;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+}
+
+/* Reset CSS dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Gaya dasar body */
+body {
+    background-color: var(--light-color);
+    color: var(--text-dark);
+    line-height: 1.6;
+    transition: var(--transition);
+}
+
+/* Gaya link */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Kelas utilitas container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background-color: var(--dark-color);
+    color: var(--text-light);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none; /* Hapus bullet point default */
+}
+
+.nav-links a {
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+    padding: 5px 0; 
+    font-size: 1.5rem;/* Untuk area hover yang lebih besar */
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    bottom: 0;
+    left: 0;
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text-light);
+    margin-left: 20px;
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    color: var(--primary-color);
+    transform: rotate(30deg);
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.5rem;
+    padding: 5px; /* Memberikan area klik yang lebih besar */
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh; 
+    display: flex;
+    align-items: center;
+    padding-top: 100px; 
+    padding-bottom: 50px;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap; /* Untuk responsifitas yang lebih baik */
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 300px; /* Agar tidak terlalu kecil di layar sempit */
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+    min-width: 250px; /* Agar gambar tidak terlalu kecil */
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.tagline {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+.btn {
+    display: inline-flex; /* Menggunakan flex untuk ikon */
+    align-items: center;
+    gap: 8px; /* Jarak antara teks dan ikon */
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+/* Bagian Umum Section */
+section {
+    padding: 80px 0; /* Sesuaikan padding agar lebih konsisten */
+    scroll-margin-top: 80px; /* Untuk scroll halus, hindari konten terpotong header */
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    font-size: 2.5rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* About Section */
+.about-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 280px;
+}
+
+.about-image img {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-list {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.about-list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.about-list li i {
+    color: var(--success-color); /* Contoh warna untuk ikon ceklist */
+    font-size: 1.2rem;
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.skill-card {
+    background-color: var(--dark-color);
+    color: var(--text-light);
+    padding: 25px 15px;
+    border-radius: 10px;
+    text-align: center;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+.skill-icon {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.skill-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.skill-card p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 0;
+}
+
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.project-card {
+    background-color: var(--dark-color);
+    color: var(--text-light);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+.project-image {
+    height: 180px; /* Tinggi gambar proyek tetap */
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-info {
+    padding: 20px;
+    flex-grow: 1; /* Agar info proyek mengisi sisa ruang */
+    display: flex;
+    flex-direction: column;
+}
+
+.project-title {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.project-info p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Agar deskripsi mengisi ruang */
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.project-tag {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    opacity: 0.9;
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.project-links a {
+    font-size: 0.95rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.3s ease;
+}
+
+.project-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* Contact Section */
+.contact-wrapper {
+    display: flex;
+    gap: 50px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.contact-info p {
+    margin-bottom: 25px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.contact-icon {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    min-width: 25px; /* Agar ikon sejajar */
+}
+
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+    background-color: var(--dark-color);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--text-light);
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.contact-form .btn {
+    width: auto; /* Tombol kirim tidak harus 100% */
+    margin-top: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-color);
+    color: var(--text-light);
+    padding: 30px 0;
+    text-align: center;
+    margin-top: 80px;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.social-link {
+    font-size: 1.6rem;
+    color: var(--text-light);
+    transition: var(--transition);
+}
+
+.social-link:hover {
+    color: var(--primary-color);
+    transform: translateY(-4px);
+}
+
+.copyright {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .hero-content,
+    .about-content,
+    .contact-wrapper {
+        flex-direction: column;
+    }
+
+    .hero-text,
+    .about-text,
+    .contact-info {
+        order: 2; /* Pindahkan teks ke bawah gambar */
+    }
+
+    .hero-image,
+    .about-image {
+        order: 1; /* Pindahkan gambar ke atas teks */
+        margin-bottom: 40px;
+    }
+
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    .tagline {
+        font-size: 1.4rem;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 80px; /* Tinggi header */
+        left: 0;
+        width: 100%;
+        background-color: var(--dark-color);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 15px;
+        box-shadow: var(--shadow);
+        transform: translateY(-150%);
+        transition: var(--transition);
+        z-index: 999;
+        height: calc(100vh - 80px); /* Memenuhi sisa layar */
+        overflow-y: auto; /* Memungkinkan scroll jika banyak item menu */
+    }
+
+    .nav-links.show {
+        transform: translateY(0);
+    }
+
+    .nav-links li a {
+        padding: 10px 0; /* Tambah padding agar lebih mudah diklik */
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .theme-toggle {
+        margin-left: 0; /* Hapus margin agar sejajar di mobile */
+    }
+
+    .hero {
+        padding-top: 120px; /* Tambah padding agar tidak tertutup header */
+    }
+
+    h1 {
+        font-size: 2.3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .tagline {
+        font-size: 1.3rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Skill card lebih kecil */
+    }
+
+    .project-card {
+        min-width: unset; /* Hapus min-width */
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .tagline {
+        font-size: 1.1rem;
+    }
+
+    .btn {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .section-title {
+        font-size: 1.9rem;
+    }
+
+    .about-list li {
+        font-size: 0.95rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr 1fr; /* Dua kolom di layar sangat kecil */
+        gap: 20px;
+    }
+
+    .skill-icon {
+        font-size: 2.5rem;
+    }
+
+    .skill-name {
+        font-size: 1rem;
+    }
+
+    .project-title {
+        font-size: 1.2rem;
+    }
+
+    .project-info p {
+        font-size: 0.9rem;
+    }
+
+    .contact-info h3 {
+        font-size: 1.6rem;
+    }
+
+    .contact-item {
+        font-size: 1rem;
+    }
+
+    .contact-icon {
+        font-size: 1.4rem;
+    }
+
+    .social-links {
+        gap: 15px;
+    }
+
+    .social-link {
+        font-size: 1.4rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate {
+    opacity: 0; /* Default hidden */
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Animasi dengan transisi */
+    /* Remove animation property here, add it via JS on scroll */
+}
+
+/* Delay for sequential animations, applied via JS */
+.delay-1 { transition-delay: 0.1s; } /* Reduce delay for faster reveal */
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+/* ... tambahkan lebih banyak jika perlu ... */
+
+/* Class to trigger animation (added by JS) */
+.animate.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ... CSS yang sudah ada sebelumnya ... */
+
+/* Gaya untuk bagian Pengalaman */
+/* ... (Gaya experience-category, h3, experience-list, experience-item yang sudah ada) ... */
+
+.experience-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+    display: flex; /* Gunakan flexbox untuk tata letak konten dan gambar */
+    flex-direction: column; /* Default stack, akan berubah di desktop */
+    gap: 15px; /* Jarak antara gambar dan teks */
+}
+
+/* ... (experience-item:last-child dan experience-header yang sudah ada) ... */
+
+/* Gaya untuk pembungkus gambar */
+.experience-image-wrapper {
+    width: 100%; /* Default penuh */
+    text-align: center; /* Untuk menengahkan gambar jika ukurannya kecil */
+    margin-bottom: 15px; /* Jarak bawah gambar sebelum teks */
+}
+
+.experience-thumbnail {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Sudut sedikit membulat */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    object-fit: contain; /* Memastikan gambar tidak terpotong, mengisi ruang */
+    max-height: 200px; /* Batasi tinggi untuk thumbnail agar tidak terlalu besar */
+    background-color: rgba(255,255,255,0.05); /* Latar belakang untuk gambar transparan */
+    padding: 5px; /* Sedikit padding di sekitar gambar */
+}
+
+/* Gaya untuk link sertifikat (opsional) */
+.certificate-link {
+    display: inline-flex; /* Agar ikon dan teks sejajar */
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: var(--secondary-color); /* Warna yang berbeda untuk link */
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.certificate-link:hover {
+    color: var(--primary-color);
+}
+
+
+/* ... (experience-role dan experience-description yang sudah ada) ... */
+
+/* Penyesuaian Responsif untuk Pengalaman */
+@media (min-width: 769px) { /* Untuk layar yang lebih besar dari mobile */
+    .experience-item {
+        flex-direction: row; /* Gambar dan teks berdampingan */
+        align-items: flex-start; /* Gambar sejajar di atas */
+        gap: 25px; /* Jarak antara gambar dan teks */
+    }
+
+    .experience-image-wrapper {
+        flex-shrink: 0; /* Jangan biarkan wrapper menyusut */
+        width: 150px; /* Lebar tetap untuk gambar di desktop */
+        margin-bottom: 0; /* Hapus margin bawah jika sudah flex-row */
+    }
+
+    .experience-thumbnail {
+        width: 100%;
+        height: 120px; /* Tinggi thumbnail tetap */
+        object-fit: cover; /* Mungkin lebih baik cover untuk tampilan desktop */
+    }
+
+    .experience-content { /* Anda bisa membungkus teks dalam div ini jika mau */
+        flex-grow: 1;
+    }
+}
+
+
+@media (max-width: 768px) {
+    /* ... (Gaya experience-category dan h3 yang sudah ada) ... */
+    .experience-image-wrapper {
+        margin-bottom: 15px; /* Jaga jarak gambar dari teks di mobile */
+    }
+    .experience-thumbnail {
+        max-height: 150px; /* Batasi tinggi di mobile */
+    }
+}
+
+/* ... (Gaya responsive lainnya yang sudah ada) ... */
