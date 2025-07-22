@@ -87,7 +87,7 @@ nav {
     transition: var(--transition);
     position: relative;
     padding: 5px 0; 
-    font-size: 1.5rem;/* Untuk area hover yang lebih besar */
+    font-size: 1.3rem;/* Untuk area hover yang lebih besar */
 }
 
 .nav-links a:hover {
